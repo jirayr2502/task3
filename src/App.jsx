@@ -45,8 +45,10 @@ export default function App() {
     let result = basket.filter((el) => el.id != id)
     setBasket([...result])
   }
-
-
+  const handleSort = () => {
+    let result = basket.sort((a, b) => b.price - a.price)
+    setBasket([...result])
+  }
   return <>
     <h1>Online Shop</h1>
     <div className="row">
@@ -59,6 +61,7 @@ export default function App() {
         onPlus={handlePlus}
         onMinus={handleMinus}
         onRemove={handleRemove}
+        onSort={handleSort}
       />
     </div>
 
